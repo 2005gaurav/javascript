@@ -13,6 +13,12 @@ accountCity="jaipur"
 let accountState;
 // ya undefined hoga kyuki issma kohi value nhi diya ha
 
+/*
+prefer not to use var
+
+because of issue in block scope and function scope
+*/
+
 
 // changing value 
 accountEmail = "no@gmail.com";
