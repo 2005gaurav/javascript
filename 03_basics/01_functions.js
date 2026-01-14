@@ -76,7 +76,14 @@ okObject({
 const myNewArray = [200,400,100,600]
 
 function returnSecondValue(getArray){
-    return getArray[1] //  
+    return getArray[1] //  getArray is a parameter that will receive an array
 }
 console.log(returnSecondValue(myNewArray))
+
+// myNewArray is passed to the function 
+// Inside the function:
+// getArray = [200, 400, 100, 600]
+// getArray[1] → 400
+// return 400
+// console.log(400) prints the value
 
