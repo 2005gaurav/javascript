@@ -14,7 +14,7 @@ const newNums = myNumbers
 
 // REDUCE method
 // reduce() takes all array elements and combines them into one final value step by
-// It is mostly used in shoppin cart
+// It is mostly used in shopping cart
 
 const numbers = [10,20,30,40,50]
 
@@ -25,7 +25,8 @@ const Total = numbers.reduce((accumulator,currentValue) => {
 // 10 + currentValue 20 =30 asha hota ha rhega jab tak loop stop nhi hojya
 console.log(Total) // 150
 
-// Real-World Example: Shopping Cart 💰
+
+//  Real-World Example: Shopping Cart 
 const cart = [
     {item:"Book",price:200},
     {item:"pen",price:50}
