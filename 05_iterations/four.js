@@ -1,6 +1,9 @@
 
 // for each() is an array method that executes a callback function once for every element in an array
 
+// for each doesnot reutrn the value
+// 
+
 // what is callback function?
 // The function passed inside forEach()is called function
 //  (num) => {
