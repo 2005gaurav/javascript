@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent  child and sibling</title>
+</head>
+<style>
+    .bg-black{
+        background-color: #212121;
+            color:#fff;
+    }
+</style>
+<body class = "bg-black">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thrusday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+    // console.log(parent.children);
+
+    // * It return an HTML COLLECTION
+    // * It contains only element nodes(no text,no comments)
+
+    // console.log(parent.childen[1]);           // output --> Tuesday
+    // * we use here indexing to access element
+    // * Because children is a collection not a single element
+    // *To get one specific child,we must use an indexing number becasue js needs to know which child
+
+    // console.log(parent.children[1].innerHtml)
+
+    // for(let i = 0;i<parent.children.length;i++){
+    //     console.log(parent.children[i].innerHTML)
+    // }
+    // * Gets the HTML content inside that child
+
+    // ****************************************************** //
+
+    parent.children[1].style.color="orange"
+    // console.log(parent.firstElementChild.innerHTML); // * Monday innerHtml remove htmlcontent
+    // console.log(parent.lastElementChild) //    <div class="day">Tuesday</div>
+
+    // ********************************************************* //
+
+    const dayOne = document.querySelector('.day') //  queryselector kiya ha issliya ya 1st CLASS .day class lega
+    // console.log(dayOne); //  <div class="day">Monday</div>
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling); // nextELementsibling means just next element
+    // jasa Monday ka baad Tuesday 
+
+    console.log("NODES:",parent.childNodes);
+    // NodeList(9) [text, div.day, text, div.day, text, div.day, text, div.day, text]
+    // childNodes returns everything inside an element, including text and comments
+    //  <div class="parent">
+    //     <div class="day">Monday</div>
+    //     <div class="day">Tuesday</div>
+    //     <div class="day">Wednesday</div>
+    //     <div class="day">Thrusday</div>
+    // </div>
+// 0:text 
+// 1:div.day     -->Monday
+// 2:text  --->childnode space ko v count krta ha text ma(monday ka baad space diya ha issliya text aya)
+// 3:div.day
+// 4:text
+// 5:div.day
+// 6:text
+// 7:div.day
+// 8:text
+// length:9
+
+// A child node is anything inside an element in the DOM.
+// It can be:
+// An HTML element
+// Text
+// A comment
+// All of these are called nodes.
+
+// In the DOM, everything is a node:
+// Elements → node
+// Text → node
+// Comments → node
+// Document → node
+// So a child node is just a node that lives inside another node.
+</script>
+</html>
