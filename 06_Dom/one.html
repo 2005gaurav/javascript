@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color:#fff;
+        }
+    </style>
+</head>
+<body class ="bg-black">
+    <div>
+        <h1 id = "title" class="heading">Dom lerning on youtube <span style="display:none;"></span></h1>
+        <h2>lorem ipsum dolor sit.</h2>
+        <h2>lorem ipsum dolor sit.</h2>
+        <h2>lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password"name=""id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">Two</li>
+            <li class="list-item">Three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+                         <!-- 1. -->
+<!-- document.getElementById('title') -->
+ <!-- document access All html
+      get mtlb fetch
+      ElementById('title') ka mtlb ha
+      title naam ka id jis tag ma ha usko select kro-->
+<!-- <h1 id = "title" class="heading">Dom lerning on youtube</h1> -->
+
+                         <!-- 2. -->
+<!-- <h1 id = "title" class="heading">Dom lerning on youtube</h1> -->
+<!-- document.getElementById('title').id -->
+ <!-- .id last ma lgya ha iska mtlb ha 
+       ya BAS id  KO HI SELECT KREGA
+     output--  'title'-->
+
+                        <!-- 3 -->
+<!-- document.getElementById('title').class -->
+ <!-- undefined ayga output kyuki -->
+<!-- class is NOT a valid JavaScript property name on DOM elements
+       class is an HTML attribute
+       But class is a reserved keyword in JavaScript
+       So the DOM API does not expose it as .class
+       That property simply does not exist, hence undefined.
+ -->
+
+                        <!-- 4 -->
+ <!-- document.getElementById('title').getAttribute('id') -->
+  <!-- output 'title' -->
+   <!-- getAttribute('id') reads the value directly from the HTML attribute. -->
+
+<!-- document.getElementById('title').id -->
+ <!-- .id accesses the DOM property (live state) -->
+  <!-- id here is a JavaScript property
+       Browser creates this property when it builds the DOM
+       Always returns a string
+       Reflects the current state of the element -->
+
+
+                          <!-- 5 -->
+<!-- <h1 id = "title" class="heading">Dom lerning on youtube</h1> -->
+<!-- document.getElementById('title').setAttribute('class','test') -->
+<!--  .setAttribute() overwrites the attribute
+       It doesnot add,it replace
+       Remove all previous values-->
+<!-- <h1 id = "title" class="test">Dom lerning on youtube</h1> -->
+
+
+                   <!-- 6 -->
+<!-- <h1 id = "title" class="title heading">Dom lerning on youtube</h1> -->
+<!-- document.getElementByclassName('heading') 
+       * select All elements that have the class heading
+
+       * It return a live HTMLcollection(array-like-object) Not a real array
+       * HTML collection ka prototype check krna prega console par
+        ussma jo jo method diya hoga wahi use krna prega
+        * Nhi to HTML collection ko convert krna prega Array ma
+        -->
+
+                   <!-- 7 -->
+<!-- querySelector -->
+<!-- querySelector called a CSS selector Because whatever you write inside querySelector() is Exactly the same syntax you use in Css -->
+<!-- document.querySelector('h2')
+     select only first h2 tag  -->
+<!-- document.querySelector('#title') 
+    select the FIRST element whose id is title
+    #title is a Css ID selector
+    In Css:
+    #title {
+  color: red;
+}
+   same rule applies in js-->
+
+<!-- <h1 id="title" class="heading">DOM learning on youtube</h1> -->
+<!-- const el = document.querySelector('#title'); -->
+<!-- you get the Entire DOM element
+  Not a collection -->
+<!--output-- <h1 id="title" class="heading">DOM learning on youtube</h1> -->
+
+                   <!-- 8 -->
+<!-- tempLiList[0].style.color='green'    
+       This is usually a list of elements like:
+       Nodelist (from querySelectrAll)
+       HTMLCollection (from getElementByTagName/getELementsByClassName)
+        
+       tempLilist[0]
+       Access the first element in the list
+       indexing starts from 0
+       Returns a single <li> Dom element
+        *without[0],you cannot apply styles directly-->
+
+                    <!-- 9 -->
+<!-- converting HTMLcollection and Nodelist into array 
+     * because they have not all method to use but ARRAY have-->
+
+<!-- Example -->
+<!-- document.getElementsByClassName('list-item') -->
+<!-- const tempClassList=document.getElementsByClassName('list-item') -->
+<!-- tempClassList
+       HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item] 
+       *prototype check kiya HTML collection ka PAR KOHI ARRAY METHOD NHI THA JISSA HMLOG 
+       KUX CHANGE KRSAKA
+       *issliya HTML collection ko ARRAY MA CONVERT KRNA PREGA
+         -->
+<!-- Array.from(tempClassList) 
+       converted HTMl collection into an array Now we can use array method-->
+<!--  const myConvertedArray = Array.from(tempClassList) -->
