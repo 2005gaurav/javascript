@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove elements in DOM</title>
+</head>
+<body style="background-color:#212121;color:#fff">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // Inserting value in DOM
+    // Normal way
+    function addlanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML=`${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage("python")
+    addlanguage("typescript")
+
+    // *****************************OPTIMIZE WAY TO CREATE ELEMENT AND INSERT VALUE*********
+    // More optimize way
+    function optiLang (langName){
+        const li = document.createElement('li');
+        const addText = document.createTextNode(langName)
+        li.appendChild(addText)
+        document.querySelector('.language').appendChild(li)
+    }
+    optiLang("golang")
+
+    // ******************************EDIT**********************************
+    // first tarika to edit
+     const secondLang = document.querySelector("li:nth-child(2)")
+    //  console.log(secondLang)
+    // secondLang.innerHTML="Mojo"
+    const newli = document.createElement('li')
+    newli.textContent="Mojo"
+    secondLang.replaceWith(newli)
+
+    // second tarika to edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML='<li>TypeScript</li>'
+// The entire element is replaced
+// Old <li> is removed
+// New <li> is inserted in the same position
+
+// ************************************REMOVE*****************
+const lastlang = document.querySelector("li:last-child")
+lastlang.remove()
+</script>
+</html>
