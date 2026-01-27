@@ -1,8 +1,8 @@
 # Projects related to DOM
 
 ## project link
-[click here](https://stackblitz.com/edit/vitejs-vite-hdnmqhpy?file=1-colorChanger%2Findex.html&)
 
+[click here](https://stackblitz.com/edit/vitejs-vite-zuyzguhd?file=index.html,style.css,2_BMICalculator%2Fstyle.css&terminal=dev)
 # Solution code
 
 ## project 1
