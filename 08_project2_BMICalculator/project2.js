@@ -23,22 +23,47 @@
 // No reload
 // JS controls the logic
 
-form.addEventListener('submit',function(e){
-    e.preventDefault();
+const form = document.querySelector('form');
 
-   const height= parseInt(document.querySelector('#height').value);
-//    .value is used to access user enter value
-// parseInt is used to take integer value
-   const weight= parseInt(document.querySelector('#weight').value);
-   const results = document.querySelector('#results')
+form.addEventListener('submit', function (e) {
+  e.preventDefault(); // stop page reload
 
-if(height === ''||height < 0||isNaN(height)){
-    results.innerHTML=`please give a valid height ${height}`;
-}else if(weight === ''||weight<0||isNaN(weight)){
-    results.innerHTML=`please give a valid weight ${weight}`;
-}else{
-    const bmi =(weight /((height*height)/10000)).toFixed(2);
-    results.innerHTML=`<span>${bmi}</span>`
-}
-})
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+
+  // Validation
+  if (isNaN(height) || height <= 0) {
+    results.innerHTML = "Please enter a valid height";
+    return;
+  }
+
+  if (isNaN(weight) || weight <= 0) {
+    results.innerHTML = "Please enter a valid weight";
+    return;
+  }
+
+  // BMI calculation
+  const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
+  // BMI category logic
+  let category = "";
+
+  if (bmi < 18.5) {
+    category = "Underweight";
+  } else if (bmi >= 18.5 && bmi < 25) {
+    category = "Normal";
+  } else if (bmi >= 25 && bmi < 30) {
+    category = "Overweight";
+  } else {
+    category = "Obese";
+  }
+
+  // Display result
+  results.innerHTML = `
+    <p>Your BMI is <strong>${bmi}</strong></p>
+    <p>Category: <strong>${category}</strong></p>
+  `;
+});
+
 
