@@ -36,7 +36,8 @@ parts of oop
 #
 object literal
 
-.Constructor function                      
+.Constructor function  
+                    
 .prototypes
 
 .Classes
