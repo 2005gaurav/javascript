@@ -48,3 +48,98 @@ console.log(multipleBy5.prototype); //{}
 // ✅ Objects yahin se inherit karte hain
 // ✅ Memory bachata hai
 
+
+// ****************creating own prototype method to save memory*****************************
+
+function createUser (username,score){
+    this.username=username
+    this.score=score
+}
+
+createUser.prototype.increment=function(){
+    this.score++
+    console.log(`The price of chai is increase ${this.score}`)
+}
+createUser.prototype.printMe=function(){
+    console.log(`price is ${this.score}`);
+//    Sirf 1 function memory me bana
+//  Sab objects usko share kar rahe hain
+// Matlab:
+// 1000 users = 1 function only
+}
+// yha hmlog prototype me  method add kiya ha 
+// printMe method ha 
+// jab v printMe object method ko call krenga to price of score print hoga
+
+// Sab object ek hi function share karte hain
+// so Memory save hoti hai
+
+const chai = new createUser("chai",25)
+// chai ek object hai jo createUser constructor se bana hai.
+// inside chai:
+// {
+//   username: "chai",
+//   score: 25
+// }
+// Aur iska hidden connection:
+// chai → createUser.prototype
+
+
+
+// emtpy object banga -->{}
+// this = {}
+// new ka direct link with prototype
+// constructor run hota hai
+// object return krega
+
+// so chai ban gya ha
+// {
+//   username: "chai",
+//   score: 25
+// }
+
+// Aur iska hidden link:
+// chai → createUser.prototype → Object.prototype → null
+// Isliye chai ko printMe() mil jata hai 
+chai.printMe()
+// Step 1: Chai ke andar search
+// chai.printMe ❓
+
+// Kya chai ke andar direct printMe hai?
+// ❌ Nahi hai.
+
+// Step 2: Prototype me search
+// createUser.prototype.printMe ✅
+// Yahan mil jata hai.
+// Is process ko bolte hain:
+// 👉 Prototype Lookup
+
+// Step 3: this Set Hota Hai
+// Jab function mil jata hai, JS usko call karta hai:
+// this = chai
+// Matlab:
+// 👉 this ab chai object ko refer karega.
+
+// chai.printMe() ka matlab:
+// "Hey JS, chai object ka score print kar do"
+
+chai.increment()
+
+
+
+const Tea = createUser("tea",250)
+//  Yahan new use nahi hua ❌
+// To:
+// 👉 Normal function call ho jata hai
+// 👉 Constructor nahi ban pata
+
+// this Ab Browerser ma point krega
+// this = window
+
+// window.username = "tea"
+// window.score = 250
+
+// Global variable ban gaya!
+
+// Aur function kuch return nahi kar raha, isliye:
+// tea === undefined
